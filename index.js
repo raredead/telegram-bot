@@ -46,35 +46,30 @@ bot.on('callback_query', (query) => {
 
     let img = '';
 
-    if (query.data === 'monday') {
-        img = 'media/monday.png';
-    }
-    if (query.data === 'tuesday') {
-        img = 'media/tuesday.png';
-    }
-    if (query.data === 'wensday') {
-        img = 'media/wensday.png';
-    }
-    if (query.data === 'thursday') {
-        img = 'media/thursday.png';
-    }
-    if (query.data === 'friday') {
-        img = 'media/friday.png';
-    }
-    if (query.data === 'saturday') {
-        img = 'media/saturday.png';
-    }
-    if (img) {
-        bot.sendPhoto(chatId, img, {
-            reply_markup: {
-                inline_keyboard: keyboard
-            }
-        });
-    } else {
-        bot.sendMessage(chatId, 'Давайте попробуем еще раз?', {
-            reply_markup: {
-                inline_keyboard: keyboard
-            }
-        });
+    switch (query.data) {
+        case 'monday':
+            bot.sendPhoto(chatId, 'media/monday.png')
+            break;
+        case 'tuesday':
+            bot.sendPhoto(chatId, 'media/tuesday.png')
+            break;
+
+        case 'wensday':
+            bot.sendPhoto(chatId, 'media/wensday.png')
+            break;
+
+        case 'thuesday':
+            bot.sendPhoto(chatId, 'media/thursday.png')
+            break;
+
+        case 'friday':
+            bot.sendPhoto(chatId, 'media/friday.png')
+            break;
+
+        case 'saturday':
+            bot.sendPhoto(chatId, 'media/saturday.png')
+            break;
+        default:
+            alert: 'ldlld'
     }
 });
