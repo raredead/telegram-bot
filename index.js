@@ -1,5 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api');
-const token = '1348860870:AAGBAx3mCNgUbhMEMHnKQCa72OoUVgflAuA';
+const token = '';
 
 
 const bot = new TelegramBot(token, { polling: true });
@@ -31,7 +31,7 @@ const keyboard = [
     }]
 ];
 
-bot.on('message', (msg) => {
+bot.onText(/\/расписание/, (msg, match) => {
     const chatId = msg.chat.id;
 
     bot.sendPhoto(chatId, 'media/main.png', {
@@ -58,7 +58,7 @@ bot.on('callback_query', (query) => {
             bot.sendPhoto(chatId, 'media/wensday.png')
             break;
 
-        case 'thuesday':
+        case 'thursday':
             bot.sendPhoto(chatId, 'media/thursday.png')
             break;
 
